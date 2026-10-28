@@ -1,0 +1,763 @@
+/* ========================================
+   1. 基本設定
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 95px;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  color: #e8e1dc;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  line-height: 1.8;
+  background-color: #111;
+  background-image: url("../images/back.png");
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: auto;
+}
+
+/* 最上部80pxのベージュ帯 */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  width: 100%;
+  height: 80px;
+  background: #f5f0e8;
+  pointer-events: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+section {
+  width: 100%;
+}
+
+/* ---------- SP ---------- */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    background-position: center top;
+  }
+
+  body::before {
+    height: 65px;
+  }
+}
+
+/* ========================================
+   2. ヘッダー
+======================================== */
+
+#box {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  background: #f5f0e8;
+  color: #211b18;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: min(1200px, 100%);
+  min-height: 80px;
+  margin: 0 auto;
+  padding: 8px 0;
+}
+
+.header-logo {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+.header-logo img {
+  width: 58px;
+  height: auto;
+  object-fit: contain;
+}
+
+.header-title {
+  display: flex;
+  flex: 0 1 auto;
+  align-items: center;
+}
+
+.header-title img {
+  width: min(320px, 100%);
+  max-height: 64px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.nav {
+  display: none;
+}
+
+.nav-inner {
+  margin-left: auto;
+}
+
+.nav-inner ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-inner a {
+  display: inline-block;
+  padding: 8px 0;
+  color: #211b18;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-inner a:hover {
+  color: #98765f;
+}
+
+/* ---------- SP ---------- */
+@media (max-width: 768px) {
+  #box {
+    padding: 0 18px;
+  }
+
+  .header {
+    position: relative;
+    min-height: 65px;
+    gap: 10px;
+    padding: 8px 0;
+  }
+
+  .header-logo img {
+    width: 42px;
+  }
+
+  .header-title img {
+    width: min(230px, 58vw);
+    max-height: 48px;
+  }
+
+  .nav {
+    display: block;
+    flex: 0 0 auto;
+    margin-left: auto;
+    padding: 4px 0 4px 10px;
+    border: 0;
+    color: #211b18;
+    background: transparent;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .nav-inner {
+    position: absolute;
+    top: 100%;
+    right: -18px;
+    left: -18px;
+    display: none;
+    margin: 0;
+    padding: 8px 18px 14px;
+    background: #f5f0e8;
+  }
+
+  .nav-inner.is-open {
+    display: block;
+  }
+
+  .nav-inner ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+  }
+
+  .nav-inner a {
+    display: block;
+    padding: 8px 4px;
+  }
+}
+
+/* ========================================
+   3. ヒーロー
+======================================== */
+
+.hero {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-inner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- SP ---------- */
+@media (max-width: 768px) {
+  .hero-inner,
+  .hero-inner img {
+    width: 100%;
+  }
+}
+
+/* ========================================
+   4. CONCEPT
+======================================== */
+
+.concept {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 100px 120px;
+}
+
+.concept h2,
+.collection h2,
+.contact h2 {
+  margin: 0 0 18px;
+  color: #c6aa99;
+  font-size: 27px;
+  font-weight: normal;
+  letter-spacing: 0.2em;
+}
+
+.concept h2,
+.contact h2 {
+  text-align: center;
+}
+
+/* タイトルと文章の間隔を縮小 */
+.concept h2 {
+  margin-bottom: 18px;
+}
+
+.concept p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 2.5;
+  white-space: pre-line;
+}
+
+/* ---------- SP ---------- */
+@media (max-width: 768px) {
+  .concept {
+    padding: 65px 25px;
+  }
+
+  .concept h2 {
+    margin-bottom: 14px;
+    font-size: 23px;
+  }
+
+  .concept p {
+    font-size: 14px;
+    line-height: 2.2;
+  }
+}
+
+/* ========================================
+   5. COLLECTION 商品一覧
+======================================== */
+
+.collection {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 70px 0 100px;
+}
+
+/* 各ジャンルを4列で配置 */
+.collection > .product-group {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+/* ジャンル見出しを左揃え */
+.collection > .product-group > h2 {
+  grid-column: 1 / -1;
+  justify-self: start;
+  width: 100%;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+/* 商品画像の背景は透明 */
+.collection .box {
+  min-width: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.collection .box img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  cursor: pointer;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.collection .box img:hover {
+  transform: scale(1.025);
+}
+
+/* ---------- SP ---------- */
+@media (max-width: 768px) {
+  .collection {
+    padding: 50px 18px 65px;
+  }
+
+  .collection > .product-group {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 60px;
+  }
+
+  .collection > .product-group > h2 {
+    margin-bottom: 5px;
+    font-size: 23px;
+  }
+}
+
+/* ========================================
+   6. 商品詳細ポップアップ
+======================================== */
+
+.product-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 80px;
+  background: rgba(0, 0, 0, 0.94);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.product-viewer.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* 画像と枚数表示 */
+.viewer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: min(500px, 70vw);
+  max-height: calc(100vh - 120px);
+}
+
+/* 正方形・最大500px */
+.viewer-image {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 160px);
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  user-select: none;
+}
+
+/* 前へ・次へ・閉じる */
+.viewer-prev,
+.viewer-next,
+.viewer-close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.viewer-prev,
+.viewer-next {
+  top: 50%;
+  width: 48px;
+  height: 60px;
+  font-family: Arial, sans-serif;
+  font-size: 42px;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.viewer-prev {
+  left: 20px;
+}
+
+.viewer-next {
+  right: 20px;
+}
+
+.viewer-close {
+  top: 12px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  font-family: Arial, sans-serif;
+  font-size: 38px;
+  line-height: 1;
+}
+
+.viewer-prev:hover,
+.viewer-next:hover,
+.viewer-close:hover {
+  color: #c6aa99;
+}
+
+/* 画像枚数 */
+.viewer-count {
+  color: #e8e1dc;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+}
+
+/* 表示中は背面をスクロールさせない */
+body.viewer-open {
+  overflow: hidden;
+}
+
+/* ---------- SP ---------- */
+@media (max-width: 768px) {
+  .product-viewer {
+    padding: 55px 40px;
+  }
+
+  .viewer-content {
+    width: min(500px, 78vw);
+  }
+
+  .viewer-image {
+    max-height: calc(100vh - 140px);
+  }
+
+  .viewer-prev,
+  .viewer-next {
+    width: 32px;
+    font-size: 30px;
+  }
+
+  .viewer-prev {
+    left: 2px;
+  }
+
+  .viewer-next {
+    right: 2px;
+  }
+
+  .viewer-close {
+    top: 8px;
+    right: 8px;
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 400px) {
+  .product-viewer {
+    padding-right: 35px;
+    padding-left: 35px;
+  }
+
+  .viewer-content {
+    width: 78vw;
+  }
+}
+
+/* ========================================
+   7. CONTACT
+======================================== */
+
+.contact {
+  width: min(800px, 100%);
+  margin: 0 auto;
+  padding: 80px 35px 100px;
+}
+
+.contact-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-inner label {
+  margin: 22px 0 8px;
+  font-size: 16px;
+}
+
+.contact-inner input,
+.contact-inner textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #655850;
+  border-radius: 0;
+  outline: none;
+  color: #e8e1dc;
+  background: #1a1918;
+}
+
+.contact-inner input:focus,
+.contact-inner textarea:focus {
+  border-color: #c6aa99;
+}
+
+.contact-inner textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-inner button {
+  align-self: center;
+  min-width: 180px;
+  margin-top: 35px;
+  padding: 12px 30px;
+  border: 1px solid #c6aa99;
+  color: #e8e1dc;
+  background: transparent;
+  cursor: pointer;
+  letter-spacing: 0.12em;
+  transition:
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.contact-inner button:hover {
+  color: #111;
+  background: #c6aa99;
+}
+
+/* ---------- SP ---------- */
+@media (max-width: 768px) {
+  .contact {
+    padding: 60px 22px 70px;
+  }
+
+  .contact h2 {
+    margin-bottom: 25px;
+    font-size: 23px;
+  }
+
+  .contact-inner input,
+  .contact-inner textarea {
+    font-size: 16px;
+  }
+}
+
+/* ========================================
+   8. SNS
+======================================== */
+
+.sns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  padding: 30px 80px;
+}
+
+.sns a {
+  display: block;
+  width: 65px;
+  transition: opacity 0.3s ease;
+}
+
+.sns a:hover {
+  opacity: 0.8;
+}
+
+.sns img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- SP ---------- */
+@media (max-width: 768px) {
+  .sns {
+    gap: 20px;
+    padding: 25px 15px;
+  }
+
+  .sns a {
+    width: 34px;
+  }
+}
+
+/* ========================================
+   9. フッター
+======================================== */
+
+.footer {
+  padding: 25px 15px;
+  color: #aaa09a;
+  background: #0b0b0b;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+/* ---------- SP ----------- */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 12px;
+    font-size: 12px;
+  }
+}
+
+/* ========================================
+   10. トップへ戻るボタン
+======================================== */
+
+.top-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 200;
+  display: block;
+  width: 48px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.top-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.top-btn img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- SP ---------- */
+@media (max-width: 768px) {
+  .top-btn {
+    right: 12px;
+    bottom: 12px;
+    width: 42px;
+  }
+}
+
+
+/* ----お問い合わせ送信完了ウィンドウ---- */
+.form-modal[hidden] {
+  display: none;
+}
+
+.form-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.form-modal-box {
+  width: 100%;
+  max-width: 440px;
+  padding: 35px 25px;
+  text-align: center;
+  color: #eee;
+  background: #171717;
+  border: 1px solid #777;
+  box-sizing: border-box;
+}
+
+.form-modal-box h3 {
+  margin: 0 0 20px;
+  font-size: 22px;
+}
+
+.form-modal-box p {
+  line-height: 1.8;
+}
+
+.form-modal-box button {
+  margin-top: 15px;
+  padding: 12px 35px;
+  color: #fff;
+  background: #333;
+  border: 1px solid #888;
+  cursor: pointer;
+}
+
+.form-modal-box button:hover {
+  background: #555;
+}
+
+.form-modal-note {
+  font-size: 12px;
+  color: #aaa;
+}
+
+#form-status {
+  margin-top: 15px;
+  color: #c66;
+}
+
+#contact-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
