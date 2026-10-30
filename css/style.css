@@ -244,9 +244,25 @@ section {
 ======================================== */
 
 .concept {
+  box-sizing: border-box;
   width: min(1200px, 100%);
   margin: 0 auto;
   padding: 100px 120px;
+}
+
+.concept-text {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.concept p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 2.5;
+  white-space: pre-line;
 }
 
 .concept h2,
@@ -264,18 +280,10 @@ section {
   text-align: center;
 }
 
-/* タイトルと文章の間隔を縮小 */
 .concept h2 {
   margin-bottom: 18px;
 }
 
-.concept p {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 15px;
-  line-height: 2.5;
-  white-space: pre-line;
-}
 
 /* ---------- SP ---------- */
 @media (max-width: 768px) {
@@ -291,6 +299,10 @@ section {
   .concept p {
     font-size: 14px;
     line-height: 2.2;
+  }
+
+  .concept-text {
+    padding: 0 5px;
   }
 }
 
