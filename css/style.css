@@ -207,6 +207,7 @@ section {
   .nav-inner a {
     display: block;
     padding: 8px 4px;
+     text-align: right;
   }
 }
 
